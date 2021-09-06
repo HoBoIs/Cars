@@ -1,1 +1,55 @@
+//car.cpp
+using namespace std;
+
+//---------------------------------------------------------------------------------------
+std::istream& operator>>(std::istream& is, Car& c){
+    is >> c.name >> c.color >> c.price;
+    //if $ is there after the price:
+    //char dollarsign;
+    //is >> dollarsign;
+    return is;
+}
+
+Car::Car()
+{
+    price=0;
+}
+
+Car::Car(string name_in, string color_in, double price_in)
+{
+    name = name_in;
+    color = color_in;
+    price = price_in;
+}
+Car::~Car() {}
+//---------------------------------------------------------------------------------------
+string Car::getName()
+{
+    return name;
+}
+string Car::getColor()
+{
+    return color;
+}
+double Car::getPrice()
+{
+    return price;
+}
+//---------------------------------------------------------------------------------------
+void Car::paint(string new_color)
+{
+    color = new_color;
+    price += 1000;
+}
+//---------------------------------------------------------------------------------------
+string Car::toString()
+{
+    stringstream ss;
+    ss << "Name: " << name << endl;
+    ss << "Color: " << color << endl;
+    ss << "Price: $" << price << endl;
+    return ss.str();
+}
+//---------------------------------------------------------------------------------------
+
 
