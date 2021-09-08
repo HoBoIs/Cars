@@ -23,17 +23,16 @@ double fileread(vector<Car>& cars){
         exit(EXIT_FAILURE);
     }
     Car c;
-    /*if you need to also read balance from the begining of the file uncomment, and return the balance instead of 0:
-     * (if it is writen to the end place is>>balance after the loop)
-     *double balance;
-     is>>balance;*/
+    double balance;
+    is>>balance;
     while (is>>c)
     {
+        cout<<c.toString()<<" had been read\n";
         cars.push_back(c);        
     }
     is.close();
 
-    return 0;
+    return balance;
 }
 
 int main()
@@ -140,9 +139,9 @@ int main()
             string chooseFile;
             cout<<"File name: ";
             //if the balance should be read too 
-            //balance = fileread(cars);
+            balance = fileread(cars);
             //if not:
-            fileread(cars);
+            //fileread(cars);
         }
         else if (option == 7)
         {
